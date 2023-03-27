@@ -1,6 +1,6 @@
 {
-  "name": "batchable",
-  "version": "1.0.0",
+  "name": "solidity-batchable",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
