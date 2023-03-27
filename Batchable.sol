@@ -31,5 +31,5 @@ struct Batch {
 
     event BatchCreated(Batch batch);
     event SpotReserved(Spot spot);
-    event RefundRequested(Spot spot);
+    event RefundRequested(uint _batchId, address _purchaserAddress, uint _quantity);
 }
