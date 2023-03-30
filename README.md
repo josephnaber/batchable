@@ -5,12 +5,12 @@ This is a [Solidity](https://soliditylang.org/) module available through the
 [`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):
 
 ```bash
-$ npm i solidity-batchable
+$ npm i solidity-campaignable
 ```
 
 ## Usage
 
 ```Solidity
-import "solidity-batchable/Batchable.sol";
-contract YourContract is Batchable {}
+import "solidity-campaignable/Campaignable.sol";
+contract YourContract is Campaignable {}
 ```
