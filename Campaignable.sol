@@ -2,8 +2,10 @@
 
 pragma solidity >=0.8.17 <0.9.0;
 
+import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
+
 contract Campaignable{
-	constructor(){}
+    constructor(){}
 
     struct Campaign {
         address creator;
@@ -33,14 +35,25 @@ contract Campaignable{
     event OrderCreated(Order createdOrder);
     event OrderRefunded(Order refundedOrder);
 
-    modifier isValidCreate(bytes memory _signature, string memory _campaignId, uint8 _fee, address _contractAddress){
+    modifier isValidCreate(bytes memory _signature, string memory _campaignId, uint8 _fee, address _contractAddress, address _authorizerAddress){
         bytes32 messageHash = keccak256(
             abi.encodePacked(_contractAddress, msg.sender, _campaignId, "create", _fee)
         );
         address signer = messageHash.toEthSignedMessageHash().recover(
             _signature
         );
-        require(signer == authorizerAddress, "Invalid signature");
+        require(signer == _authorizerAddress, "Invalid signature");
+        _;
+    }
+
+    modifier isValidReserve(bytes memory _signature, uint256 _campaignId, address _contractAddress, address _authorizerAddress) {
+        bytes32 messageHash = keccak256(
+            abi.encodePacked(_contractAddress, msg.sender, _campaignId, "reserve")
+        );
+        address signer = messageHash.toEthSignedMessageHash().recover(
+            _signature
+        );
+        require(signer == _authorizerAddress, "Invalid signature");
         _;
     }
 }
