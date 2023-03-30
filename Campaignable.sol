@@ -30,8 +30,19 @@ contract Campaignable{
     }
 
     event CampaignCreated(Campaign campaign);
-    event OrderCreated(Order order);
-    event OrderRefunded(uint256 _campaignId, address _purchaserAddress, uint8 _quantity);
+    event OrderCreated(Order createdOrder);
+    event OrderRefunded(Order refundedOrder);
+
+    modifier isValidCreate(bytes memory _signature, string memory _campaignId, uint8 _fee, address _contractAddress){
+        bytes32 messageHash = keccak256(
+            abi.encodePacked(_contractAddress, msg.sender, _campaignId, "create", _fee)
+        );
+        address signer = messageHash.toEthSignedMessageHash().recover(
+            _signature
+        );
+        require(signer == authorizerAddress, "Invalid signature");
+        _;
+    }
 }
 
 
