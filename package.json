@@ -1,6 +1,6 @@
 {
-  "name": "solidity-batchable",
-  "version": "1.0.1",
+  "name": "solidity-campaignable",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
