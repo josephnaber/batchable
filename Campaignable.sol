@@ -3,8 +3,12 @@
 pragma solidity >=0.8.17 <0.9.0;
 
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract Campaignable{
+    using Strings for uint256;
+    using ECDSA for bytes32;
+
     constructor(){}
 
     struct Campaign {
