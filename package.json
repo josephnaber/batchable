@@ -1,11 +1,19 @@
 {
   "name": "solidity-campaignable",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a [Solidity](https://soliditylang.org/) module available through the [npm registry](https://www.npmjs.com/). Installation is done using the [`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josephnaber/batchable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/josephnaber/batchable/issues"
+  },
+  "homepage": "https://github.com/josephnaber/batchable#readme"
 }
