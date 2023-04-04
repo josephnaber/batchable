@@ -14,7 +14,6 @@ contract Campaignable{
     struct Campaign {
         address creator;
         address paymentAddress;
-        bool paused;
         bool minted;
         string externalId;
         uint8 fee;
