@@ -20,7 +20,7 @@ contract Campaignable{
         uint256 price;
         uint256 maxOrders;
         uint256 ordersTotal;
-        uint256 ordersPerWallet;
+        uint256 ordersPerWallet; // could use uint8
         uint256 campaignBalance;
         uint256 id;
     }
@@ -31,7 +31,7 @@ contract Campaignable{
         uint8 quantity;
         uint256 campaignId;
         uint256 campaignOrdersTotal;
-        uint256 walletOrdersTotal;
+        uint256 walletOrdersTotal; // could use uint8
     }
 
     event CampaignCreated(Campaign campaign);
@@ -40,7 +40,7 @@ contract Campaignable{
 
     modifier isValidCreate(bytes memory _signature, string memory _campaignId, uint8 _fee, address _contractAddress, address _authorizerAddress){
         bytes32 messageHash = keccak256(
-            abi.encodePacked(_contractAddress, msg.sender, _campaignId, "create", _fee)
+            abi.encode(_contractAddress, msg.sender, _campaignId, "create", _fee)
         );
         address signer = messageHash.toEthSignedMessageHash().recover(
             _signature
@@ -51,7 +51,7 @@ contract Campaignable{
 
     modifier isValidReserve(bytes memory _signature, uint256 _campaignId, address _contractAddress, address _authorizerAddress) {
         bytes32 messageHash = keccak256(
-            abi.encodePacked(_contractAddress, msg.sender, _campaignId, "reserve")
+            abi.encode(_contractAddress, msg.sender, _campaignId, "reserve")
         );
         address signer = messageHash.toEthSignedMessageHash().recover(
             _signature
