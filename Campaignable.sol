@@ -40,7 +40,7 @@ contract Campaignable{
 
     modifier isValidCreate(bytes memory _signature, string memory _campaignId, uint8 _fee, address _contractAddress, address _authorizerAddress){
         bytes32 messageHash = keccak256(
-            abi.encodePacked(_contractAddress, msg.sender, _campaignId, 
+            abi.encode(_contractAddress, msg.sender, _campaignId, 
 "create", _fee)
         );
         address signer = messageHash.toEthSignedMessageHash().recover(
@@ -52,7 +52,7 @@ contract Campaignable{
 
     modifier isValidReserve(bytes memory _signature, uint256 _campaignId, address _contractAddress, address _authorizerAddress) {
         bytes32 messageHash = keccak256(
-            abi.encodePacked(_contractAddress, msg.sender, _campaignId, 
+            abi.encode(_contractAddress, msg.sender, _campaignId, 
 "reserve")
         );
         address signer = messageHash.toEthSignedMessageHash().recover(

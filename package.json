@@ -1,6 +1,6 @@
 {
   "name": "solidity-campaignable",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "This is a [Solidity](https://soliditylang.org/) module available through the [npm registry](https://www.npmjs.com/). Installation is done using the [`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):",
   "main": "index.js",
   "scripts": {
