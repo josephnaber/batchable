@@ -1,6 +1,6 @@
 {
   "name": "solidity-campaignable",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "This is a [Solidity](https://soliditylang.org/) module available through the [npm registry](https://www.npmjs.com/). Installation is done using the [`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/josephnaber/batchable#readme",
   "dependencies": {
-    "@openzeppelin/contracts": "^4.8.2"
+    "@openzeppelin/contracts": "^4.9.0"
   }
 }
